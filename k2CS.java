@@ -27,7 +27,7 @@ class k2CS {
 	}
 
 
-	public static void main(String args[]) throws IOException
+	public static void main(String args[]) throws Exception
 	{
 	
 	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
