@@ -2,6 +2,24 @@ import java.io.*;
 import java.util.*;
 
 class kprimesCS {
+
+	public static List<Integer> primeFactors(int num)
+	{
+	int n = num;
+	List<Integer> factors = new ArrayList<Integer>();
+
+	for(int i=2; i<=n; i++)
+	{
+	  while(n%i==0)
+	  {
+		factors.add(i);
+		n/=i;
+	 }
+	}
+	return factors;
+	}
+
+
 	public static void main(String args[]) throws IOException
 	{
 	
@@ -25,12 +43,41 @@ class kprimesCS {
   	int a2 = Integer.parseInt(str.split(" ")[1]);
    	int a3 = Integer.parseInt(str.split(" ")[2]);
 
+///////////////correct working code in codechef/////////////////////////
+
+	int cnt =0;
+	int p = a1;
+	while(p<=a2){
+	
+	//for(int i=a1; i<=a2; i++) {
+	
+	for (Integer integer : primeFactors(i)) {
+		uniq.add(integer);
+		// System.out.println(integer);
+ 		
+		}
+
+
+	if(uniq.size() == a3)
+	{
+	cnt++;
+	}	
+
+	//System.out.println("/// " + uniq.size() + " ////");
+	
+	uniq.clear();
+	
+	p++;
+	}
+
+	System.out.println(cnt);
+
 
 //////////////////////////////////////////////////////////
 
 
 //HashSet<Integer> uniq1 = new HashSet<Integer>();
-
+/*
         List<Integer> factor = new ArrayList<Integer>();
 //      int num = a;
         int count = 0;
@@ -48,12 +95,12 @@ class kprimesCS {
                 num /= u;
                 }
         }
-
+*/
 /*        if(uniq.size() == a3)
         {
         count++;
         }
-    */   }
+       }
      //   System.out.println(count);
        // }//return factor;
 
@@ -61,6 +108,7 @@ class kprimesCS {
 	{
 	System.out.println(factor.get(h));
 	}
+*/
 ///////////////////////////////////////////////////////////
 
 
