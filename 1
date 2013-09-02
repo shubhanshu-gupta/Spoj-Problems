@@ -1,0 +1,19 @@
+import java.io.*;
+
+public class problem366Acf{
+	public static void main(String args[]) throws IOException
+	{
+	
+	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+	String str = in.readLine();
+	int x = Integer.parseInt(str.split(" ")[0]);
+	int y = Integer.parseInt(str.split(" ")[1]);
+	
+	if(x>0 && y>0)
+	{
+	int sum = x+y;
+	System.out.println("0 "+ sum+ " "+sum+" 0");
+	}
+}
+} 
