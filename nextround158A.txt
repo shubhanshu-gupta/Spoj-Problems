@@ -1,0 +1,72 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	public static void main(String args[]) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] s = br.readLine().split(" ");
+		String[] s1 = br.readLine().split(" ");
+		
+		int[] i = new int[2];
+		
+		i[0] = Integer.parseInt(s[0]); int n= i[0];
+		i[1] = Integer.parseInt(s[1]); int k = i[1];
+
+		int[] a = new int[n];
+		
+		for(int j=0; j<n; j++)
+		{
+			a[j] = Integer.parseInt(s1[j]);
+		}
+		
+		int threshold = a[k-1];
+//		int qualify = k;
+		int qualify = 0;
+		
+	/*	
+		while(k!=n-1)
+		{
+			if(a[k] == threshold)
+			{
+				qualify++;
+			}
+			k++;
+		}
+		
+		int zero = 0;
+		
+		for(int l=0; l<n; l++)
+		{
+			if(a[l]==0)
+			{
+				zero++;
+			}
+		}
+	//	System.out.println(qualify);
+	
+		if(zero==n)
+		{
+			System.out.println(0);
+		}
+		else if(zero>=k)
+		{
+			System.out.println(n-zero);
+		}
+		else
+		{
+		System.out.println(qualify);
+		}
+	*/
+		
+		for(int t=0; t<n; t++)
+		{
+			if(a[t]!=0 && a[t]>=threshold)
+			{
+				qualify++;
+			}
+		}
+		System.out.println(qualify);
+	}
+	
+}

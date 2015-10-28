@@ -1,0 +1,68 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		int n = Integer.parseInt(s);
+		
+		String[] s1 = br.readLine().split(" ");
+		String[] s2 = br.readLine().split(" ");
+		
+		int p = Integer.parseInt(s1[0]);
+		int q = Integer.parseInt(s2[0]);
+		
+		int[] arr = new int[n+1];
+		
+		for(int i=1; i<=p; i++)
+		{
+			arr[Integer.parseInt(s1[i])]++;
+		//	System.out.println(arr[Integer.parseInt(s1[i])]+"/"+Integer.parseInt(s1[i]));
+		}
+		
+		for(int i=1; i<=q; i++)
+		{
+			arr[Integer.parseInt(s2[i])]++;
+		//	System.out.println(arr[Integer.parseInt(s2[i])]+"/"+Integer.parseInt(s2[i]));
+		}
+		
+		int won=0;
+		
+		for(int i=1; i<arr.length; i++)
+		{
+		//	System.out.println("+++"+arr[i]);
+			if(arr[i]==0)
+			won=1;
+
+		}
+		
+		if(won==0)
+		{
+			System.out.println( "I become the guy." );
+
+		}
+		else
+		{
+			System.out.println( "Oh, my keyboard!" );
+		}
+		// StringTokenizer st = new StringTokenizer(s1);
+		// StringTokenizer st1 = new StringTokenizer(s2);
+		
+		// int[] p =new int[];
+		// int[] 
+		
+		// while(st.hasNextToken())
+		// {
+			
+		// }
+		
+		
+	}
+}

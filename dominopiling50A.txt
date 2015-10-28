@@ -1,0 +1,18 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	public static void main(String args[]) throws java.lang.Exception
+	{
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+	String[] s = br.readLine().split(" ");
+	
+	long m = Integer.parseInt(s[0]);
+	long n = Integer.parseInt(s[1]);
+	
+	int total = (int)Math.floor(m*n*0.5);
+	
+	System.out.println(total);
+	}
+}

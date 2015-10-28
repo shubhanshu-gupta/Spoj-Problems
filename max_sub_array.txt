@@ -1,0 +1,81 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws java.lang.Exception 
+    {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String s = br.readLine();
+        int testcases = Integer.parseInt(s);
+        StringTokenizer tokenizer;
+        
+        while(testcases-- > 0)
+            {
+			String s1 = br.readLine();
+			int arraylength = Integer.parseInt(s1);
+			String s2 = br.readLine();
+			int[] arr = new int[arraylength];
+			int cnt=0;
+			
+			int first=0;
+			int second=0;
+			int current=0;
+			
+			tokenizer = new StringTokenizer(s2);
+			
+			for(int i=0; i<arraylength; i++)
+			{
+				arr[i] = Integer.parseInt(tokenizer.nextToken());
+				if(arr[i]<0)
+				{
+					cnt++;
+				}
+				
+			}
+			
+			if(cnt==arraylength) //It means that the array is completely negative
+			{
+				int val=-1;
+				for(int k=0; k<arraylength; k++)
+				{
+					if(val<arr[k])
+					{
+						val = arr[k];
+					}
+				}
+				first = val;
+				second = val;
+			}
+			else
+			{
+				//non-contiguous sum
+				for(int l=0; l<arraylength; l++)
+				{
+					if(arr[l]>0)
+					{
+						second += arr[l];
+					}
+				}
+				
+				//contiguous sum
+				for(int l=0; l<arraylength; l++)
+				{
+				
+					current+=arr[l];
+					
+					if(first<current)
+					{
+						first=current;
+					}
+					if(current<0)
+					{
+						current=0;
+					}
+				}	
+			}
+			System.out.println(first+ " " + second);
+        }
+    }
+}

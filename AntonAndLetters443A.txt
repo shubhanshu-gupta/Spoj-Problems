@@ -1,0 +1,33 @@
+/* input
+{a, b, c}
+output
+3
+
+ */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		String str = s.replaceAll("[{]|[}]|[, ]", "");
+	//	System.out.println(str);
+		
+		int l = str.length();
+	HashSet hs = new HashSet();
+		
+		for(int i=0; i<l; i++)
+		{
+			hs.add(str.charAt(i));
+		}
+		
+		System.out.println(hs.size());
+	}
+}

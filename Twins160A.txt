@@ -1,0 +1,43 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+	public static void main(String args[]) throws IOException
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		int n = Integer.parseInt(s);
+		
+		String s1 = br.readLine();
+		
+		Integer[] arr = new Integer[n];
+		
+		StringTokenizer st = new StringTokenizer(s1);
+		
+		for(int i=0; i<n; i++)
+		{
+			arr[i] = Integer.parseInt(st.nextToken());
+		}
+		
+		Arrays.sort(arr, Collections.reverseOrder());
+		int temp=0;
+		int mincoins =0;
+		int coinsum=0;
+		
+		for(int i=0; i<=arr.length-1; i++)
+		{
+		temp+=arr[i];
+		}
+		
+		int j=0;
+		while(coinsum<=temp/2)
+		{
+			coinsum+=arr[j];
+			j++;
+	//			System.out.println(j+ "          " + coinsum);
+		}
+		System.out.println(j);
+	}
+	
+}
