@@ -1,0 +1,61 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		int n= Integer.parseInt(s);
+		int[] a = new int[n];
+		int[] b = new int[n];
+		
+		int min=0;
+		
+		for(int i=0; i<n; i++)
+		{
+			String[] s1 = br.readLine().split(" ");
+			a[i] = Integer.parseInt(s1[0]);
+			b[i] = Integer.parseInt(s1[1]);
+			
+		}
+		
+		min = b[0];
+		int i=1;
+		int in=min;
+		
+		while(i!=n-1)
+		{
+			in = in-a[i]+b[i];
+			
+			if(in>min)
+			{
+				min = in;
+				i++;
+				//		System.out.println(i + "    " + min);
+			}
+			else
+			i++;
+			
+			/*
+			if(in-a[i]+b[i]<min)
+			{
+				i++;
+			}
+			else
+			{
+				in = in-a[i]+b[i];
+				i++;
+					System.out.println(i + "    " + min);
+			}
+			*/
+		}
+		System.out.println(min);
+	}
+}

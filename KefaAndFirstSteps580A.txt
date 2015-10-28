@@ -1,0 +1,42 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Kefa decided to make some money doing business on the Internet for exactly n days. He knows that on the i-th day (1?=?i?=?n) he makes ai money. Kefa loves progress, that's why he wants to know the length of the maximum non-decreasing subsegment in sequence ai. Let us remind you that the subsegment of the sequence is its continuous fragment. A subsegment of numbers is called non-decreasing if all numbers in it follow in the non-decreasing order. */
+
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		int n = Integer.parseInt(s);
+		
+		String s1 = br.readLine();
+		StringTokenizer st = new StringTokenizer(s1);
+		int[] arr = new int[n];
+		
+		for(int i=0; i<n; i++)
+		{
+			arr[i] = Integer.parseInt(st.nextToken());
+			//System.out.println(arr[i]);
+		}
+		
+		int max=1; int sum=1;
+		for(int i=1; i<n; i++)
+		{
+			if(arr[i]>=arr[i-1])
+			sum++;
+			
+			else
+			sum=1;
+			
+			if(max<sum)
+			max=sum;
+		}
+		System.out.println(max);
+	}
+}

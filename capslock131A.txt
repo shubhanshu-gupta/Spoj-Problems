@@ -1,0 +1,33 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		String s1= s.substring(1);
+//		System.out.println(s1);
+		
+		if(s.toUpperCase().equals(s))
+		{
+			s = s.toLowerCase();
+			System.out.println(s);
+		}
+		else if(s1.toUpperCase().equals(s1))
+		{
+			s1 = s1.toLowerCase();
+			s1 = String.valueOf(s.charAt(0)).toUpperCase() + s1;
+			System.out.println(s1);
+		}
+		else
+		System.out.println(s);
+		
+	}
+}

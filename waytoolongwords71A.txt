@@ -1,0 +1,47 @@
+/* package whatever; // don't place package name! */  //http://ideone.com/Cbik9m
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		int n = Integer.parseInt(s);
+		String[] word = new String[n];
+		int[] len = new int[n];
+		String[] f_word = new String[n];
+		
+		for(int i=0; i<n; i++)
+		{
+			word[i] = br.readLine();
+			len[i] = word[i].length();
+			if(len[i]>10)
+			{
+				char a = word[i].charAt(0);
+				String a1 = String.valueOf(a);
+				int l = len[i]-2;
+				char b = word[i].charAt(len[i]-1);
+				String b1 = String.valueOf(b);
+				String c = Integer.toString(l);
+				
+				f_word[i] = a1+c+b1;
+			}
+			else
+			f_word[i] = word[i];
+		}
+		
+		for(int j=0; j<n; j++)
+		{
+			System.out.println(f_word[j]);
+		}
+		
+	//	System.out.println(len[1]);
+		
+	}
+}

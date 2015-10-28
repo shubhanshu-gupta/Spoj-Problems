@@ -1,0 +1,86 @@
+/* Explanation found useful here: https://codinghangover.wordpress.com/2015/03/09/codeforces-260div-1-a-boredom/ */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		int n = Integer.parseInt(s);
+		int[] arr = new int[n];
+		String[] s1 = br.readLine().split(" ");
+		int[] arr1 = new int[n];
+		
+		for(int i=0; i<n; i++)
+		{
+			arr[i] = Integer.parseInt(s1[i]);
+			
+			if(arr[i]==1)
+			arr1[i]=-1;
+			else
+			arr1[i]=1;
+		}
+		
+		int ones=0;
+		int current=0;
+		int first=-1;
+	//	int max=-1;
+		
+		for(int i=0; i<n; i++)
+		{
+			/*
+			if(arr1[i]==1)
+			{
+				current++;
+				if(current>max)
+				{
+					max = current;
+				}
+			}
+			else
+			{
+				ones++;
+				current--;
+				if(current<0)
+				{
+					current=0;
+				}
+				
+			}
+			//System.out.println(max+ones);
+			*/
+			
+			
+			
+			
+			if(arr1[i]==-1)
+			ones++;
+			
+			//max contiguous sum of 1s
+			current+=arr1[i];
+			
+			if(first<current)
+			{
+				first=current;
+			}
+			if(current<0)
+			{
+				current=0;
+			}
+			
+			
+		
+		}
+		
+		//summing up ones and max contigous sum of 1s
+		int total = ones+first;
+	//	int total = ones+max;
+		System.out.println(total);
+	}
+}

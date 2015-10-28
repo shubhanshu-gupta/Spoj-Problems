@@ -1,0 +1,57 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		String delim = "+";
+		
+		StringTokenizer st = new StringTokenizer(s,delim);
+		
+	//	int n = s.length;
+		int c1=0,c2=0,c3=0;
+		int[] arr = new int[st.countTokens()];
+		
+	/*	for(int i=0; i<n; i++)
+		{
+			if(Integer.parseInt(s[i])==1) c1++;
+			else if(Integer.parseInt(s[i])==2) c2++;
+			else if(Integer.parseInt(s[i])==3) c3++;
+		}
+	*/	
+		int i=0;
+		
+		while(st.hasMoreTokens())
+		{
+			arr[i] = Integer.parseInt(st.nextToken());
+			
+		/*	if(Integer.parseInt(st.nextToken())==1) c1++;
+			else if(Integer.parseInt(st.nextToken())==2) c2++;
+			else if(Integer.parseInt(st.nextToken())==3) c3++;*/
+			
+			i++;
+		}
+		
+		Arrays.sort(arr);
+		
+		for(int k=0; k<arr.length; k++)
+		{
+			if(k==arr.length-1)
+			{
+			System.out.print(arr[k]);	
+			}
+			else
+			{
+				System.out.print(arr[k]+"+");
+			}
+		}
+		
+		}
+	}
