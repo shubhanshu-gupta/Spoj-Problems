@@ -1,4 +1,4 @@
-/* package whatever; // don't place package name! */  //http://ideone.com/Cbik9m
+﻿/* package whatever; // don't place package name! */  //http://ideone.com/Cbik9m
 
 import java.util.*;
 import java.lang.*;

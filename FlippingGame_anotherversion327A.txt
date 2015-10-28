@@ -1,4 +1,4 @@
-/* Explanation found useful here: https://codinghangover.wordpress.com/2015/03/09/codeforces-260div-1-a-boredom/ */
+﻿/* Explanation found useful here: https://codinghangover.wordpress.com/2015/03/09/codeforces-260div-1-a-boredom/ */
 
 import java.util.*;
 import java.lang.*;

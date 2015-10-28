@@ -30,4 +30,5 @@ public class Main
 		
 		System.out.println(hs.size());
 	}
+>>>>>>> 8723a2617f3402267240c6c041c8ead5e2c5b230
 }
