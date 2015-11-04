@@ -1,0 +1,57 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		int n = Integer.parseInt(s);
+		
+		String s1 = br.readLine();
+		String s2 = br.readLine();
+		String s3 = br.readLine();
+		
+		StringTokenizer st1 = new StringTokenizer(s1);
+		StringTokenizer st2 = new StringTokenizer(s2);
+		StringTokenizer st3 = new StringTokenizer(s3);
+		
+		int[] arr1 = new int[n];
+		int[] arr2 = new int[n-1];
+		int[] arr3 = new int[n-2];
+		
+		int sum1=0;
+		while(st1.hasMoreTokens())
+		{
+			int i=0;
+			arr1[i] = Integer.parseInt(st1.nextToken());
+			sum1+=arr1[i];
+			i++;
+		}
+		
+		int sum2=0;	
+		while(st2.hasMoreTokens())
+		{
+			int i=0;
+			arr2[i] = Integer.parseInt(st2.nextToken());
+			sum2+=arr2[i];
+			i++;
+		}
+		
+		int sum3=0;	
+		while(st3.hasMoreTokens())
+		{
+			int i=0;
+			arr3[i] = Integer.parseInt(st3.nextToken());
+			sum3+=arr3[i];
+			i++;
+		}
+		
+		System.out.println(sum1-sum2);
+		System.out.println(sum2-sum3);
+	}
+}
