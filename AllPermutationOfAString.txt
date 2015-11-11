@@ -1,0 +1,59 @@
+/*The following code is to print all possible permutations of a string in java */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		ArrayList<String> st = new ArrayList<String>();
+		st = permutation(s);
+		
+		for(String str : st)
+		System.out.println(str);
+	}
+	
+	public static ArrayList<String> permutation(String s) {
+		
+		ArrayList<String> res = new ArrayList<String>();
+		
+		if(s.length()==1)
+		{
+			res.add(s);
+		}
+		else if(s.length()>1)
+		{
+			int lastIndex = s.length()-1;
+			
+			String last = s.substring(lastIndex); //the last character
+			String rest = s.substring(0,lastIndex); //the rest of the string
+			
+			//perform permutation on the rest of the string and merge with the last character
+			res = merge(permutation(rest),last);
+			
+		}
+		return res;
+	}
+	
+	public static ArrayList<String> merge(ArrayList<String> list, String c) {
+		ArrayList<String> res = new ArrayList<String>();
+		
+		for(String s: list)
+		{
+			//for each string, insert the last char to all possible positions and add them to d new list
+			for(int i=0; i <= s.length(); i++)
+			{
+				String ps = new StringBuffer(s).insert(i,c).toString();
+				res.add(ps);
+			}
+		}
+		return res;
+	}
+}

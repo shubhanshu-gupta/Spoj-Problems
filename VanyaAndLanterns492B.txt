@@ -1,0 +1,44 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+//Vanya and Lanterns codeforces 492B
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] s = br.readLine().split(" ");
+		
+		int n = Integer.parseInt(s[0]);
+		int l = Integer.parseInt(s[1]);
+		
+		String[] s1 = br.readLine().split(" ");
+		int[] arr = new int[n];
+		
+		for(int i=0; i<n; i++)
+		{
+			arr[i] = Integer.parseInt(s1[i]);
+			
+		}
+		
+		Arrays.sort(arr);
+		
+		double max=0;
+		
+		for(int i=0; i<n-1; i++)
+		{
+			if(max<arr[i+1]-arr[i])
+			{
+				max = arr[i+1]-arr[i];
+			}
+		}
+		
+//		float f = Math.max(max/2, Math.max(arr[0],l-arr[n-1]));
+		System.out.printf("%10.10f",Math.max(max/2, Math.max(arr[0],l-arr[n-1])));
+	}
+}

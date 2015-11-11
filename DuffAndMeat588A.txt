@@ -1,0 +1,52 @@
+/* 
+Input
+
+The first line of input contains integer n (1?=?n?=?105), the number of days.
+
+In the next n lines, i-th line contains two integers ai and pi (1?=?ai,?pi?=?100), the amount of meat Duff needs and the cost of meat in that day.
+
+Output
+Print the minimum money needed to keep Duff happy for n days, in one line.
+
+*/
+
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		int n = Integer.parseInt(s);
+		
+		int[] a = new int[n];
+		int[] p = new int[n];
+		
+		int price = Integer.MAX_VALUE;
+	
+		for(int i=0; i<n; i++)
+		{
+			String[] s1 = br.readLine().split(" ");
+			a[i] = 		Integer.parseInt(s1[0]);
+			p[i] = Integer.parseInt(s1[1]);
+		}
+	
+		int cost=0;
+		for(int i=0; i<n; i++)
+		{
+			
+			price = Math.min(price,p[i]);	
+			cost += price*a[i];
+		}
+		
+		System.out.println(cost);
+		
+	}
+	
+}

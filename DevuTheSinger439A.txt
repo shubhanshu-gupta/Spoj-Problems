@@ -1,0 +1,62 @@
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] s = br.readLine().split(" ");
+		
+		int n = Integer.parseInt(s[0]);
+		int d = Integer.parseInt(s[1]);
+		
+		int[] songdur = new int[n];
+		
+		String[] s1 = br.readLine().split(" ");
+		
+		for(int i=0; i<n; i++)
+		{
+			songdur[i] = Integer.parseInt(s1[i]);
+		}
+		
+		int sum=0;
+		
+		for(int i=0; i<n; i++)
+		{
+		sum+=songdur[i];	
+		}
+		
+		int total = sum+(n-1)*10;
+		int jokes = 0;
+		
+		if(total>d)
+		{
+			System.out.println("-1");
+		}
+		else
+		{
+			int tleft = d-total;
+			
+			if(tleft/5>=1)
+			{
+				jokes = (int)Math.floor(tleft/5)+(n-1)*2;
+			}
+			
+		/*	if(tleft%5==0)
+			{
+			jokes = (tleft/5)+(n-1)*2;	
+			}*/
+			else
+		{	jokes = (n-1)*2;}
+		
+		System.out.println(jokes);
+		}
+		
+		
+		
+	}
+}

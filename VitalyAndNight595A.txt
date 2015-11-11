@@ -1,0 +1,45 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] s = br.readLine().split(" ");
+		
+		int n = Integer.parseInt(s[0]);
+		int m = Integer.parseInt(s[1]);
+		
+		int lightsON=0;
+		
+
+		for(int i=0; i<n; i++)
+		{
+		String[] s1 = br.readLine().split(" ");
+			
+			for(int k=0; k<2*m; k+=2)
+			{//	System.out.println(s1[k]+"  "+s1[k+1]);
+				int o =Integer.parseInt(s1[k])|Integer.parseInt(s1[k+1]);
+		//	System.out.println(o);
+				if(o==1)
+				{
+					lightsON+=o;
+				}
+				else if(o==0)
+				{
+					lightsON+=o;
+				}
+				
+			}
+			
+		}
+			System.out.println(lightsON);
+		
+		
+	}
+}
