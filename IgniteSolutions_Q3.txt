@@ -1,0 +1,48 @@
+//Q3) Demonstrate how to sort an array of strings by the length of each string, shortest strings first
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		//Enter the input as separated strings. For ex- shubhanshu gupta ignite solutions pune maharashtra
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String[] s = br.readLine().split(" ");
+		
+		int n = s.length;
+		int j;
+		
+		//Insertion sort
+		/*I opted for insertion sort because 
+			1) It's small and clean. There are not many extra variables. Hence less space complexity
+			2) Though, we do compromise on the time complexity (in this case it would be O(n2) whereas there
+			are algorithms that can achieve the same in O(nlogn). But it all depends upon your n. Whether 
+			you really want to code that much (those algorithms also come with O(log n) space complexity
+			for a reasonably small n or go with less complicated sorting algorithms.
+		*/	
+		
+		for(int i=0; i<n; i++)
+		{
+			j=i;
+			
+			while((j>0) && (s[j].length()<s[j-1].length()))
+			{
+				String temp = s[j-1];
+				s[j-1] = s[j];
+				s[j] = temp;
+				j--;
+			}
+			
+		}
+		
+		for(int i=0; i<n; i++)
+		{
+			System.out.print(s[i]+" ");
+		}
+	}
+}

@@ -1,0 +1,11 @@
+Q2) In JavaScript?, answer if the following expressions result in true or false (and explain your
+answer)
+a. "0" == 0
+	True (Because all non-empty strings are true. JS converts the operands, if the two operands 	are not of the same type. So, in this case, one is a number and the other is a string. JS in 	this case, converts the operands into numbers and hence, the comparison comes out to be 	true!)
+
+b. "" == 0
+	True (Because any empty string is false. And 0 is casted in false. Hence, false == false => 	true)
+	
+
+c. "" == "0"
+	False (Because any non-empty string is true. "0" is non-empty and LHS is an empty string)

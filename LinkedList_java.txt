@@ -1,0 +1,56 @@
+//Implementing Linked List
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class LinkedList {
+	
+	public Node head;
+	public int listCount;
+	
+	//Construtor
+	public LinkedList() {
+		head = new Node(null);
+		listCount=0;
+	}
+	
+	public void add(Object data){
+	
+		if(head==null)
+		{
+			head = new Node(data);
+		}
+		
+		Node temp = new Node(data);
+		Node current = head;
+		
+		while(current.getNext()!=null)
+		{
+			current = current.getNext();
+		}
+		
+		current.setNext(temp);
+		listCount++;
+	}
+	
+	public int getSize()
+	{
+		return listCount;
+	}
+	
+	
+	
+}
+
+
+public class Main
+{
+	
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+	}
+}

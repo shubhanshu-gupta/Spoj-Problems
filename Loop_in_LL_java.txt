@@ -1,0 +1,50 @@
+//http://ideone.com/9P9Sk7
+
+//Detect loop in LL
+
+import java.util.*;
+import java.lang.*;
+//import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		LinkedList l1 = new LinkedList();
+		
+		l1.addFirst("A");
+		l1.add("B");
+		l1.add("C");
+		l1.add("D");
+		l1.add("E");
+		l1.add("F");
+		l1.addLast("C");
+		
+		System.out.print(" "+ l1);
+		
+		l1 head = l1.getFirst();
+		l1 head1 = l1.getFirst();
+		
+		int i=0;int j=0;
+		while(i<l1.size())
+		{
+			while(head1.get(i++)!=null)
+			{
+				head = l1.get(i++);
+				head1 = l1.get(i+2);
+				
+				if(head==head1) break;	
+			}
+			
+		}
+		
+		head = l1.get(0);
+		while(head!=head1)
+		{
+			head = l1.get(i++);
+			head1 = l1.get(i++);
+		}
+		
+		System.out.print("Loop point "+head1);
+	}
+}

@@ -1,0 +1,47 @@
+//Q5) write a program to solve the following message: Vrphwklqj phdqlqjixo
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	String[] s = br.readLine().split(" ");
+	
+	int n = s.length;
+	int shift = 3;
+	
+	for(int i=0; i<n; i++)
+	{
+		String s1 = s[i];
+		int len = s1.length();
+		String s2 = "";
+		
+		for(int j=0; j<len; j++)
+		{
+		int charval = s1.charAt(j);
+		if(Character.isUpperCase(s1.charAt(j)))
+		{
+		s2 += String.valueOf((char)(((s1.charAt(j) - 'A' -3)%26+26)%26+'A'));	
+		}
+		else if(Character.isLowerCase(s1.charAt(j)))
+		{
+			s2 += String.valueOf((char)(((s1.charAt(j) - 'a' -3)%26+26)%26+'a'));
+		}
+		else
+		{
+			s2 += String.valueOf((char)charval);
+		}
+		}
+		
+	//	s[i] = s2;
+	System.out.print(s2+" ");
+	}
+	
+	
+	}
+}

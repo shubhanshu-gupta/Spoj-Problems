@@ -1,0 +1,15 @@
+Q4) the value of final_answer at the end of this snippet?
+
+function weird(x) {
+	var tmp = 3;
+	return function(y) {
+		return x + y + ++tmp;
+			}
+		}
+
+var funny = weird(2);
+	
+var final_answer = funny(10);
+
+Ans4) I guess, the value of final_answer should be 16. When weird(2) was called, we have two variables with us: x with value 2 and tmp with value 3, and also a function object is created which has a return statement in it. So, this function object is then returned and assigned to funny. So, the objects outside of weird cannot access what's inside it, but the function object inside weird which has been assigned to funny can access those variables. Hence, when funny(10) is called, x has value 2, y has value 10 and temp has value 4. Total is 16.
+

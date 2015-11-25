@@ -1,0 +1,31 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		
+		String ab = "AB";
+		String ba = "BA";
+		int index=0, offset=0;
+		int flag=0;
+		
+		int ableft = s.indexOf(ab); int abright = s.lastIndexOf(ab);
+		int baleft = s.indexOf(ba); int baright = s.lastIndexOf(ba);
+		
+		if((ableft>=0 && baleft>=0) && (abright-baleft>1 || baright-ableft>1))
+		{
+			System.out.println("YES");
+			
+		}
+		else
+		System.out.println("NO");
+			
+			
+	}
+}

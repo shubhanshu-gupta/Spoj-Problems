@@ -1,0 +1,88 @@
+/*
+Q6) Write a program (in Python, JavaScript or Ruby) to populate and then sort a randomly distributed list of 1 million integers, each integer having a value >= 1 and <= 100 without using any builtin/external library/function for sorting 
+
+Your program should carefully consider the input and come up with the most efficient sorting solution you can think of. Provide the space and time complexity of your algorithm 
+*/
+
+// Will be implementing Counting Sort. It is not a comparison based sorting. It's run time complexity is O(n) with space proportional to the range of data.
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		//Enter space separated array of integers. 
+		String[] s = br.readLine().split(" ");
+		
+		int n = s.length;
+		
+		int[] arr = new int[n];
+		
+		for(int i=0; i<n; i++)
+		{
+			arr[i] = Integer.parseInt(s[i]);
+		}
+		
+		int min = arr[0]; int max = arr[0];
+		
+		for(int i=0; i<n; i++)
+		{
+			if(arr[i]>max)
+			{
+				max=arr[i];
+			}
+			
+			if(arr[i]<min)
+			{
+				min=arr[i];
+			}
+		}
+		
+		int range = max-min+1;
+		
+		int[] count = new int[range]; //Creating this count array so as to store the frequency of each element
+		
+		for(int i=0; i<n; i++)
+		{
+			count[arr[i]-min]++;
+		}
+		
+	/*	for(int i=0; i<count.length; i++)
+		{
+			System.out.println(count[i]);
+		}*/
+		
+		
+	//NOw changing count[i] so that, count[i] now would contain the actual position of an element in the array
+	
+		for(int i=1; i<range; i++)
+		{
+			count[i] += count[i-1];
+		}
+		
+
+		int j=0;
+		
+		for(int i=0; i<range; i++)
+		{
+			while(j<count[i])
+			{
+				arr[j]=i+min;
+				j++;
+			}
+		}
+		
+		for(int i=0; i<n; i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+			
+		
+		
+	}
+}

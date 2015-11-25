@@ -1,0 +1,42 @@
+//Q1) Write a function that takes an array of integers and returns that array rotated by N positions
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();	//Takes "N" as input
+		String[] s1 = br.readLine().split(" ");	//Takes the space seperated array as input
+		
+		int n = Integer.parseInt(s);
+		int len = s1.length;
+	
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		
+		//Inserting the string of integers into the arraylist
+		for(int i=0; i<len; i++)
+		{
+			arr.add(Integer.parseInt(s1[i]));
+		}
+		
+		//Rotating by N
+			for(int i=0; i<n; i++)
+		{
+			int elem = arr.get(arr.size()-1);
+			arr.remove(arr.size()-1);
+			arr.add(0,elem);
+		}
+		
+		//Final output as desired
+			for(int i=0; i<len; i++)
+		{
+			System.out.print(arr.get(i)+" ");
+		}
+		
+		
+	}
+}
