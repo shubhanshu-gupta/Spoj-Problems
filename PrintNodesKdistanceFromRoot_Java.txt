@@ -1,0 +1,82 @@
+/* Print nodes at k distance from the root */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Node 
+	{
+		int data;
+		Node left;
+		Node right;
+		
+		public Node(int data)
+		{
+		
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+	}
+
+class Ideone
+{
+	
+	
+	public void distance(Node root)
+	{
+		//We'll be using Level Order Traversal to solve this problem
+		
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		int level = 0;
+		int size = 0;
+		
+		while(!q.isEmpty())
+		{
+			size = q.size();
+			
+			while(size>0)
+			{
+			Node n = (Node)q.remove();
+			
+			if(n.left!=null)
+			{
+				q.add(n.left);
+			}
+				if(n.right!=null)
+			{
+				q.add(n.right);
+			}
+			size--;
+			}
+			level++;
+		//	System.out.println(level);
+		if(level==2)
+		{
+			for(Node s : q)
+			{
+				System.out.print(s.data+" ");
+			}
+		}
+		}
+		
+	}
+	
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Node root = new Node(1);
+		root.left = new Node(2);
+		root.right = new Node(3);
+		root.left.left = new Node(4);
+		root.left.right = new Node(5);
+		root.right.left = new Node(8);
+		root.right.right = new Node(35);
+		
+		Ideone l = new Ideone();
+		System.out.println("Printing nodes at k distance: ");
+		l.distance(root);
+		
+	}
+}

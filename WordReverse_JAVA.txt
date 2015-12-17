@@ -1,0 +1,25 @@
+/* Reversing words in a sentece */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		String s = "My name is Chris";
+		
+		StringBuilder sb = new StringBuilder();
+		
+		String[] words = s.split(" ");
+		
+		for(int i=words.length-1; i>=0; i--)
+		{
+			sb.append(words[i]).append(" ");
+		}
+		
+		System.out.println(sb);
+	}
+}

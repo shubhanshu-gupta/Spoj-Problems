@@ -1,0 +1,85 @@
+/* Insert an element in a sorted Linked List */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class LinkedList
+{
+	Node head;
+		
+		class Node {
+			int data;
+			Node next;
+			
+			Node(int d)
+			{
+				data = d;
+				next = null;
+			}
+		}
+		
+	void sortedInsert(Node new_node)
+	{
+		Node current;
+		
+		if(head==null || head.data >= new_node.data)
+		{
+			new_node.next = head;
+			head = new_node;
+		}
+		else
+		{
+			current = head;
+			
+			while(current.next != null && current.next.data < new_node.data)
+			{
+				current = current.next;
+			}
+			
+			
+			new_node.next = current.next;
+			current.next = new_node;		
+		}
+	}
+	
+	 /* Function to create a node */
+    Node newNode(int data)
+    {
+       Node x = new Node(data);
+       return x;
+    }
+ 
+     /* Function to print linked list */
+     void printList()
+     {
+         Node temp = head;
+         while (temp != null)
+         {
+            System.out.print(temp.data+" ");
+            temp = temp.next;
+         }
+     }
+     
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+	LinkedList ll = new LinkedList();
+	Node new_node;
+	
+	new_node = ll.newNode(5);
+	ll.sortedInsert(new_node);
+         new_node = ll.newNode(10);
+         ll.sortedInsert(new_node);
+         new_node = ll.newNode(7);
+         ll.sortedInsert(new_node);
+         new_node = ll.newNode(3);
+         ll.sortedInsert(new_node);
+         new_node = ll.newNode(1);
+         ll.sortedInsert(new_node);
+         new_node = ll.newNode(9);
+         ll.sortedInsert(new_node);
+         System.out.println("Created Linked List");
+         ll.printList();
+	}
+}

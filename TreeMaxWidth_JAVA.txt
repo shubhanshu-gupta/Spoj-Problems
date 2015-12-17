@@ -1,0 +1,71 @@
+/* Finding the max width of a tree */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Node
+{
+	int data;
+	Node left;
+	Node right;
+	
+	public Node(int data)
+	{
+		this.data = data;
+		this.left = null;
+		this.right = null;
+		
+	}
+}
+
+class Ideone
+{
+	public void maxwidth(Node root)
+	{
+		Queue<Node> q = new LinkedList<Node>();
+		int size = 0;
+		Node temp = null;
+		int width =0;
+		q.add(root);
+		
+		while(!q.isEmpty())
+		{
+			size = q.size();
+			
+			if(width<size)
+			{
+				width = size;
+			}
+			
+			if(size!=0)
+			{
+			Node n = (Node) q.remove();
+			if(n.left!=null)
+			{
+				q.add(n.left);
+			}
+			if(n.right!=null)
+			{
+				q.add(n.right);
+			}
+			size--;
+			}
+		}
+		System.out.println(width);
+	}
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Node root = new Node(5);
+ 		root.left = new Node(10);
+ 		root.right = new Node(15);
+ 	/*	root.left.left = new Node(20);
+ 		root.right.left = new Node(30);
+ 		root.right.right = new Node(35);*/
+		
+		Ideone l = new Ideone();
+		System.out.println("Max width of the tree is: ");
+		l.maxwidth(root);
+	}
+}

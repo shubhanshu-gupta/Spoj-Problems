@@ -1,0 +1,29 @@
+public void maxWidth(BSTNode root){
+		Queue<bstnode> q = new LinkedList<bstnode>();
+		int size = 0;
+		BSTNode temp = null;
+		int width = 0;
+		q.add(root);
+		while(!q.isEmpty())
+		{
+			size = q.size();
+			if(width < size)
+			{
+				width = size;
+			}
+			while(size != 0)
+			{
+				temp = q.remove();
+				if(temp.getLeftChild() != null)
+				{
+					q.add(temp.getLeftChild());
+				}
+				if(temp.getRightChild() != null)
+				{
+					q.add(temp.getRightChild());
+				}
+				size--;
+			}
+		}
+		System.out.println("The maximum width of the tree is ="+width);
+	}

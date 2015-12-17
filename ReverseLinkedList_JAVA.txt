@@ -1,0 +1,77 @@
+/* Reversing a LL */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class Ideone
+{
+	private Node head;
+	
+	private static class Node
+	{
+		int data;
+		Node next;
+		
+		Node(int val)
+		{
+			this.data = val;
+		}
+	}
+	
+	
+	public void insert(Node node)
+	{
+		Node temp = head;
+		while(temp.next!=null)
+		{
+			temp = temp.next;
+		}
+		temp = node;
+	}
+	
+	public void print(Node head)
+	{
+		Node temp = head;
+		while(temp!=null)
+		{
+			System.out.print(temp.data+" ");
+			temp = temp.next;
+		}
+		
+	}
+	
+	public static Node reverse(Node node)
+	{
+		Node current = node;
+		Node previous = null;
+		Node next = null;
+		
+		while(current!=null)
+		{
+			next = current.next;
+			//Now reversing the link
+			current.next = previous;
+			//Now moving current and previous node by 1
+			previous = current;
+			current = next;
+		}
+		return previous;
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Ideone ll = new Ideone();
+		Node head = new Node(5);
+		ll.insert(head);
+		ll.insert(new Node(6));
+		ll.insert(new Node(7));
+		ll.insert(new Node(1));
+		ll.insert(new Node(2));
+		
+		ll.print(head);
+		Node reversed = reverse(head);
+		System.out.println("After reversing");
+		ll.print(reversed);
+	}
+}

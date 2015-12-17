@@ -1,0 +1,90 @@
+/* Stack implementation in JAVA */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Stack
+{
+	Node first;
+	Node last;
+	
+	private static class Node {
+	
+	Object data;
+	Node next;
+	
+	private Node(Object o, Node n)
+	{
+		data = o;
+		next = n;
+	}
+	}
+	
+	public Stack(Node f, Node l)
+	{
+		first = f;
+		last = l;
+		first.next = last;
+	}
+	
+	public Stack()
+	{
+		first.next = last;
+	}
+	
+	public void push(Object data)
+	{
+		if(first==null)
+		{
+			first = new Node(data,null);
+		}
+		else
+		{
+	/*		last.next = new Node(data, null);
+			last = last.next;*/
+			last = new Node(data, last);
+		}
+	}
+	
+	public Object pop()
+	{
+		if(first==null)
+		{
+			return -1;
+		}
+		else
+		{
+			Object item = last.data;
+			last = last.next;
+			
+			/*Node cur = first;
+			while(cur.next.next != null)
+			{
+				cur = cur.next;
+			}
+			last = cur;*/
+			return item;
+		}
+	}
+	
+	public Object peek()
+	{
+		if(last == null)
+		{
+			return -1;
+		}
+		Object item = last.data;
+		return item;
+	}
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+			Stack st = new Stack(new Node(1, null), new Node(2, null));
+			st.push(3);
+			System.out.println(st.peek());
+			st.pop();
+			System.out.println(st.peek());
+	}
+}
