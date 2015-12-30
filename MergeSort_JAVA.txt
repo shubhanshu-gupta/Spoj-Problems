@@ -1,0 +1,98 @@
+/* Merge Sort implementation in JAVA */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Ideone
+{
+	//merges arr[l...m] and arr[m+1...r]
+	public static void merge(int arr[], int l, int m, int r)
+	{
+		
+		int n1 = m - l + 1;
+		int n2 = r - m;
+		
+		//These are 2 temp arrays
+		int[] left = new int[n1];
+		int[] right = new int[n2];
+		
+		for(int u=0; u<n1; u++)
+		{
+			left[u] = arr[l+u];
+		}
+		
+		for(int w=0; w<n2; w++)
+		{
+			right[w] = arr[m+1+w];
+		}
+		
+		//Now, merge the two temp arrays back into the main array
+		
+		int i=0, j=0, k=l;
+		while(i<n1 && j<n2)
+		{
+			if(left[i]<=right[j])
+			{
+				arr[k]=left[i];
+				i++;
+			}
+			else
+			{
+				arr[k] = right[j];
+				j++;
+				
+			}
+			k++;
+		}
+		
+		//copying the remaining few elements (if left)
+		while(i<n1)
+		{
+			arr[k]=left[i];
+			i++;
+			k++;
+		}
+		while(j<n2)
+		{
+			arr[k]=right[j];
+			j++;
+			k++;
+		}
+	}
+	
+	public static void mergesort(int arr[], int l, int r)
+	{
+		if(l<r)
+		{
+			int m = (l+r)/2;
+			mergesort(arr, l, m);
+			mergesort(arr, m+1, r);
+			merge(arr, l, m, r);
+		}
+	}
+	
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int[] array = {17,10,11,16,21,13,12,43,23,26,29,31,19};
+		int size = array.length;
+		
+		System.out.println("Given array: ");
+		for(int i=0; i<array.length; i++)
+		{
+			System.out.print(array[i]+" ");
+		}
+		
+		System.out.println("Applying mergesort");
+		mergesort(array, 0, size-1);
+		
+		System.out.println("Sorted array: ");
+		for(int i=0; i<array.length; i++)
+		{
+			System.out.print(array[i]+" ");
+		}
+		
+		
+	}
+}

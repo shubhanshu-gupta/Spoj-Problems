@@ -1,0 +1,95 @@
+/* Heapsort */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class Ideone
+{
+	public static void heapify(int arr[], int l)
+	{
+		int k;
+		int smaller;
+		int left = 2*l+1;
+		int right = 2*l+2;
+		int u = (int)Math.floor((l-1)/2);
+		
+		if(left<arr.length && arr[left]<arr[l])
+		{
+			smaller = left;
+		}
+		else
+		{
+			smaller = l;
+		}
+		
+		if(right<arr.length && arr[smaller]>arr[right])
+		{
+			smaller = right;
+		}
+		
+		if(smaller != l)
+		{
+			swap(arr, smaller, l);
+			heapify(arr, smaller);
+		}
+	}
+	
+	public static void swap(int a[], int s, int k)
+	{
+		int temp;
+		temp = a[s];
+		a[s] = a[k];
+		a[k] = temp;
+	}
+	
+	public static void build_heap_bottomup(int size, int[] heap)
+	{
+		int p = (int)Math.floor(size/2);
+		
+		for(int i=p; i>=0; i--)
+		{
+			heapify(heap, i);
+		}
+	}
+	
+	//if you want to sort the heap also, then implement this function
+	public static void heapsort(int[] heap, int size)
+	{	
+		build_heap_bottomup(size, heap);
+		
+		for(int i=0; i<heap.length; i++)
+		{
+		/*	int t = heap[0];
+			heap[0] = heap[size-1];
+			heap[size-1] = t;*/
+			swap(heap, 0, i);
+			size--;
+			heapify(heap,0);
+		}
+		
+		
+		for(int i=0; i<heap.length; i++)
+		{
+			System.out.print(heap[i]+" ");
+		}
+	}
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int[] heap = {17,10,11,16,21,13,12,43,23,26,29,31,19};
+		int n = heap.length;
+		build_heap_bottomup(n, heap); //Builds a min-heap
+		
+		for(int i=0; i<n; i++)
+		{
+			System.out.print(heap[i]+" ");
+		}
+		System.out.println("After heap sort");
+		heapsort(heap, n); //Sorting the heap
+		
+		
+		
+	}
+}
